@@ -1,0 +1,2 @@
+rasterio==1.0.24
+ipyleaflet==0.11.1
