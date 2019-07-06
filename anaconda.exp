@@ -1,0 +1,18 @@
+#!/usr/bin/expect -f
+spawn ./Anaconda3-2019.03-Linux-x86_64.sh
+expect "Please, press ENTER to continue"
+send "\rq"
+expect -ex {[no] >>> }
+send "yes\r"
+expect -ex { >>> }
+send "\r"
+expect {
+    timeout {
+        puts "Running..."
+        exp_continue
+    }
+    -ex {[no] >>> } {
+        send "yes\r"
+        puts "Finished."
+    }
+}
