@@ -68,7 +68,10 @@ RUN source ~/.bashrc \
        done \
     && python -m spacy download en_core_web_sm \
     && jupyter nbextension enable --py --sys-prefix ipyleaflet \
-    && jupyter nbextension enable --py --sys-prefix widgetsnbextension
+    && jupyter nbextension enable --py --sys-prefix widgetsnbextension \
+    && conda install -c conda-forge/label/gcc7 opencv \
+    && conda install -c menpo dlib \
+    && conda install -c conda-forge xeus-cling
 
 # Cleanup: use docker build --squash to enable actual removal of below files.
 # Needs "experimental": true in /etc/docker/daemon.json.
